@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html>
+   <head>
+      <title>neighbourhood map</title>
+      <script src="js\jquery.min.js"></script>
+      <script src="js\knockout.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <!--google fonts-->
+      <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+   </head>
+   <body>
+      <div class="cls">
+         <h1 class="jl">Jalandhar</h1>
+         <h1 class="pj">Punjab</h1>
+         <h1 class="no"> Pb08 </h1>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <!--knockout js to bind-->
+            <ul class="nav navbar-default " data-bind="foreach:locations">
+               <li class="list">
+                  <a data-bind="visible:show, event:{click:$parent.selectAll},text:title"></a>
+               </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+               <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search in Jalandhar" data-bind="value: inputText, valueUpdate: 'afterkeydown', event: {keyup: filtersearch}">
+               </div>
+            </form>
+         </div>
+      </div>
+      <div id="map"></div>
+      <script>
+         var map;
+         var locations=[];
+         
+         var dreamtour= [
+         {lat: 31.3071, lng: 75.5757},
+         {lat: 31.3105, lng:  75.6043},
+         {lat: 31.3194, lng: 75.5845},
+         {lat: 31.3312, lng:  75.5908},
+         {lat: 31.146016, lng: 75.355793}
+         ];
+         
+         
+      </script>
+      <script asyc defer src="js\app.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvdF2WYn3AyMQPXVDkkChISVO1J9DCFhA&v=3&callback=initMap" onerror="error()">
+         //google api
+      </script>
+   </body>
+</html>
